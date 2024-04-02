@@ -165,7 +165,10 @@ class ListDrug extends StatelessWidget {
                             // สร้างข้อมูล QR Code จากชื่อยา
                             String drugNames = '';
                             for (var drug in drugs) {
-                              drugNames += drug['Drug_Name'] + '\n';
+                              String drugName = drug['Drug_Name'];
+                              drugName = drugName.replaceAll(
+                                  'Drug ', ''); // ตัดคำว่า "Drug" ออกจากชื่อยา
+                              drugNames += drugName + '\n';
                             }
 
                             Navigator.push(
